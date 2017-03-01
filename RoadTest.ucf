@@ -1,0 +1,88 @@
+# fix freq file
+
+###########################################################################################
+# differential clock input 200Mhz
+###########################################################################################
+# differential clock input 200Mhz
+#NET "sys_clk_in_pn[0]" LOC = J9; ### vs 16.04 
+#NET "sys_clk_in_pn[1]" LOC = H9; ### internal 200 MHz oscillator
+
+# single input using GPIO_P
+#external NIM clock at FNAL
+#NET "FNAL_CLOCK" LOC = V34;
+NET "FNAL_CLOCK" LOC = U23; #66 MHz clock
+NET "FNAL_CLOCK" CLOCK_DEDICATED_ROUTE=FALSE;
+NET "FNAL_CLOCK" IOSTANDARD = LVCMOS25;
+
+######
+# LEDs
+#######
+#LED s on ML605
+NET "LED_BUFF_ML605[0]" LOC = AD24;
+NET "LED_BUFF_ML605[1]" LOC = AE24;
+NET "LED_BUFF_ML605[2]" LOC = AG23;
+NET "LED_BUFF_ML605[3]" LOC = AB23;
+NET "LED_BUFF_ML605[4]" LOC = AE23;
+NET "LED_BUFF_ML605[5]" LOC = AE22;
+NET "LED_BUFF_ML605[6]" LOC = AC24;
+NET "LED_BUFF_ML605[7]" LOC = AC22;
+
+NET "LED_BUFF_ML605[0]" DRIVE= 12;
+NET "LED_BUFF_ML605[1]" DRIVE= 12;
+NET "LED_BUFF_ML605[2]" DRIVE= 12;
+NET "LED_BUFF_ML605[3]" DRIVE= 12;
+NET "LED_BUFF_ML605[4]" DRIVE= 12;
+NET "LED_BUFF_ML605[5]" DRIVE= 12;
+NET "LED_BUFF_ML605[6]" DRIVE= 12;
+NET "LED_BUFF_ML605[7]" DRIVE= 12;
+
+# end LEDs
+
+
+##############################################
+# dipswitch settings
+NET "DIP_SWITCH[0]"	LOC = D22;
+NET "DIP_SWITCH[1]"	LOC = C22;
+NET "DIP_SWITCH[2]"	LOC = L21;
+NET "DIP_SWITCH[3]"	LOC = L20;
+NET "DIP_SWITCH[4]"	LOC = C18;
+NET "DIP_SWITCH[5]"	LOC = B18;
+NET "DIP_SWITCH[6]"	LOC = K22;
+NET "DIP_SWITCH[7]"	LOC = K21;
+
+NET "DIP_SWITCH[0]"		IOSTANDARD = LVCMOS25;
+NET "DIP_SWITCH[1]"		IOSTANDARD = LVCMOS25;
+
+NET "DIP_SWITCH[2]"		IOSTANDARD = LVCMOS25;
+
+NET "DIP_SWITCH[3]"		IOSTANDARD = LVCMOS25;
+
+NET "DIP_SWITCH[4]"		IOSTANDARD = LVCMOS25;
+
+NET "DIP_SWITCH[5]"		IOSTANDARD = LVCMOS25;
+
+NET "DIP_SWITCH[6]"		IOSTANDARD = LVCMOS25;
+
+NET "DIP_SWITCH[7]"		IOSTANDARD = LVCMOS25;
+
+#end dip switch
+
+#
+# PlanAhead generated physical constraints 
+
+NET "RST_IN" LOC = A18; ##labelled sw6
+NET "RST_IN" IOSTANDARD = LVCMOS25;
+#
+# button for start stop
+NET "PUSH_IN" LOC = A19; ##labelled sw5
+NET "PUSH_IN" IOSTANDARD = LVCMOS25;
+NET "PUSH_IN" CLOCK_DEDICATED_ROUTE = FALSE;
+
+NET "PUSH_STOP_IN" LOC = G26; ## labelled sw 9 and is the central one
+NET "PUSH_STOP_IN" IOSTANDARD = LVCMOS25;
+# end button for start stop
+
+
+
+
+
